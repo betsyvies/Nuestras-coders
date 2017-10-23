@@ -1,0 +1,79 @@
+/*Al usar el "*" le estamos dando la sieguiente propiedad a todo las etiquetas 
+padre e hijos, en este caso al usar la propiedad box-sizing: border-box nos 
+aseguramos que el ancho que le daremos a nuestras cajas sea el indicado, 
+incluyendo al border y padding sin contar el margin*/
+*{
+    box-sizing: border-box;
+}
+/*Le damos un margin y padding de 0 al body para que no haya espacio entre el y
+sus hijos*/
+body{
+    margin: 0;
+    padding: 0;
+}
+/*Al titulo le damos un color y tamaño adecuado*/
+h1 {
+    color: gray;
+    font-size: 20px;
+}
+/*Utilizamos este pseudo-elemento para darle altura a scrollbar*/
+::-webkit-scrollbar 
+{
+   height: 5px;
+}
+/*Utilizamos este pseudo-elemento para darle color de fondo y un borde circular
+al scrollbar*/
+::-webkit-scrollbar-thumb 
+{
+   background: #4A4A4A;
+   border-radius:5px;
+}
+/*Al contenedor padre de nuestra tabla e imagenes le daremos un ancho adecuado de
+acuerdo a lo pedido en el ejercicio, tambien cambiaremos el tipo de flujo de las 
+imagenes con overflow y esto creará elementos excedentes crando barras de desplazamiento,
+pero como el ejercicio nos pide un scrollbar horizontal arriba usaremos la propiedad
+filter: FlipV especifica el giro vertical del elemento, esta propiedad solo es soportada
+por internet explorer, es por eso que tenemos que transformarlo para que los otros 
+exploradores lo lean, "-moz" para monzilla, "-webkit" para chrom y safari y "-o" para 
+opera. Por ultimo le damos un scaleY(-1) para que el bloque tenga una simetría axial, 
+con un eje horizontal que pasa por el origen. */
+div {
+    width: 520px;
+    overflow: auto;
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+    position: relative;
+}
+/*Al contenedor directo de las images le daremos las mismas propiedades que le dimos 
+asu padre, esto con la finalidad de voltear las imagenes*/
+td { 
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+}
+/*Al usar la pseudo-clase hover le daremos a la imagen un efecto de crecimiento, esto
+sera visible cuando se pase el puntero*/
+img:hover {
+    transform: scale(1.2);
+}
+/*A nuestras imagenes le daremos un margen y opacidad segun lo que nos pida el ejercicio*/
+img {
+    margin: 11px;
+    opacity: 0.7;
+}
+/*Para los nombres de las coders usaremos position: absolute, top y left en relacion al 
+contenedor padre div y tambien le daremos color y tamaño a las letras.*/
+span{
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    top:135px;
+    left:47px;
+}
